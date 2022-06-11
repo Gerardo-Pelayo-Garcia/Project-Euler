@@ -1,1 +1,1 @@
-print("hello world")
+source('problem2.r')
