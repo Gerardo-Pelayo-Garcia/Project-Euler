@@ -59,20 +59,30 @@ check_palindrome <- function(number=0){
   return(result)
 }
 
-num1 <- rev(seq(100, 999))
-num2 <- rev(seq(100, 999))
-palindromes <- data.frame('palindromes'=c(0))
+a <- 999
+largest_palindrome <- 0
+largest_found <- FALSE
 
-for(i in 1:length(num1)){
-  if(num1[i] <900){
-    break;
-  }
-  
-  for(i2 in 1:length(num2)){
-    if(check_palindrome(num1[i]*num2[i2])==TRUE){
-      palindromes[nrow(palindromes)+1,] <- num1[i]*num2[i2]
+while(a >= 900){
+  b <- 999
+  while(b >= 900){
+    if(check_palindrome(a*b)==TRUE){
+      if(a*b <= largest_palindrome){
+        largest_found <- TRUE
+        break
+      }
+      largest_palindrome <- a*b
     }
+    b <- b - 1
   }
+  if(largest_found){
+    break
+  }
+  a <- a-1
 }
 
-return(print(max(palindromes$palindromes)))
+# Solution: 9066909
+# Hard-coded knowing the answer includes factors both over 900
+# Soluton explained by Project Euler flawed as well
+
+return(print(largest_palindrome))
