@@ -41,3 +41,32 @@ check_palindrome <- function(number=0){
 }
 
 # ------------------------------------------------------------------
+
+# Problem 7 ------------------------------------------------------ 7
+
+# Prints string if number is composite/prime
+isprime <- function(n) {
+    lim <- n/2
+    prime <- TRUE
+    for( i in 2:lim) {
+      if(n %% i == 0)
+        prime <- FALSE
+      }
+  if(n==2) prime <- TRUE
+  if(prime) print(paste(n," is a Prime Number"))
+  else print(paste(n," is a Composite Number"))
+}
+
+# Function: check if number is prime; return boolean
+check_prime <- function(n){
+  lim <- n/2
+  prime <- TRUE
+  for( i in 2:lim) {
+    if(n %% i == 0){
+      prime <- FALSE
+    }
+  }
+  return(prime)
+}
+
+# ------------------------------------------------------------------
